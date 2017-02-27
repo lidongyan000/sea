@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button>点击获取</button>
+<div style="width: 500px; height: 300px;">
+    <img src="http://api.map.baidu.com/staticimage/v2?ak=YkVXqx6hiBOTyjN6ceYswwjo4HPRm3a5&mcode=666666&center=116.403874,39.914888&width=300&height=200&zoom=11" alt=""/>
+</div>
+</body>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script>
+    $(function(){
+        $("button").bind("click",function(){
+            $.ajax({
+                url:"http://api.map.baidu.com/staticimage/v2?ak=YkVXqx6hiBOTyjN6ceYswwjo4HPRm3a5&mcode=666666&center=116.403874,39.914888&width=300&height=200&zoom=11",
+                type:"get",
+                dataType:"jsonp",
+                success:function(data){
+                    console.log(data);
+                     $("img").attr('src',data);
+
+            }
+            });
+        });
+    });
+</script>
+</html>
